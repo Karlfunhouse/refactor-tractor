@@ -1,6 +1,7 @@
-class Cookbook {
-  constructor(data) {
-    this.recipes = data;
+class CookBook {
+  constructor(ingredientsData, recipesData) {
+    this.ingredientsData = ingredientsData;
+    this.recipesData = recipesData;
   }
 
   findRecipe(searchText) {
@@ -13,4 +14,4 @@ class Cookbook {
   }
 }
 
-export default Cookbook;
+export default CookBook;
