@@ -12,7 +12,7 @@
 
 import CookBook from './cookbook';
 
-
+let user;
 let cookBook;
 let usersData;
 let ingredientsData;
