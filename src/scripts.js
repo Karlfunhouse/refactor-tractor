@@ -1,9 +1,6 @@
 // import './css/base.scss';
 // import './css/styles.scss';
 //
-// import recipeData from './data/recipes';
-// import ingredientData from './data/ingredients';
-// import users from './data/users';
 //
 // import Pantry from './pantry';
 // import Recipe from './recipe';
