@@ -1,10 +1,9 @@
-class User {
-  constructor(id, name, pantry) {
-    this.id = id;
-    this.name = name;
-    this.pantry = pantry;
-    this.favoriteRecipes = [];
+import CookBook from "../src/cookbook"
 
+class Users extends CookBook {
+  constructor(ingredientsData, recipesData, usersData) {
+    super(ingredientsData, recipesData);
+    this.usersData = usersData;
   }
 
   addToFavorites(recipe) {
@@ -35,4 +34,4 @@ class User {
 }
 
 
-export default User;
+export default Users;
