@@ -1,13 +1,13 @@
 import $ from 'jquery';
 
 export const domUpdates = {
- displayUserInformation(name, totalAmount) {
-   $('.users-name-display').text(`Hello! ${name}!`)
-   $('.users-total-display').text(`Total Amount Spent: ${totalAmount}`)
+
+ greetUser(usersData) {
+   console.log(usersData)
+   $('.user-name').text(`${usersData.usersData.name}`);
  },
 
-
- populateCards(recipesData) {
+ populateCards(recipesData, recieveRecipeInfo) {
   return recipesData.forEach(recipe => {
     $('.all-cards').append('afterbegin', `<div id='${recipesData.id}'
     class='card'>
@@ -23,7 +23,7 @@ export const domUpdates = {
           <button id='${recipesData.id}' aria-label='favorite-button' class='favorite favorite${recipesData.id} card-button'></button>
         </header>
           <span id='${recipesData.id}' class='recipe-name'>${recipesData.name}</span>
-          <img id='${recipeesData.id}' tabindex='0' class='card-picture'
+          <img id='${recipesData.id}' tabindex='0' class='card-picture'
           src='${recipesData.image}' alt='click to view recipe for ${recipesData.name}'>
     </div>`)
   })

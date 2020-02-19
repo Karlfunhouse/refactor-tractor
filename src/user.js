@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+class Users {
+  constructor(usersData) {
+=======
 import CookBook from "../src/cookbook"
 
 class Users extends CookBook {
   constructor(ingredientsData, recipesData, usersData) {
     super(ingredientsData, recipesData);
+>>>>>>> 091bbf912226c798745c81ba57ff82309f42b100
     this.usersData = usersData;
   }
 

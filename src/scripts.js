@@ -25,6 +25,7 @@ let usersData;
 let ingredientsData;
 let recipesData
 
+
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
   .then(response => response.json())
   .then(data => data.wcUsersData)
@@ -51,26 +52,30 @@ Promise.all([recipeData, ingredientData, userData])
     cookBook = new CookBook(ingredientsData, recipesData);
     currentUser = new Users(usersData[0])
     currentUsersPantry = new Pantry(usersData[0].pantry)
+    onStartUp()
     console.log(cookBook, currentUser, currentUsersPantry)
-
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
 
-const onStartup = () => {
-  console.log(recipesData)
-  // if (cardArea.classList.contains('all')) {
-  //   cardArea.classList.remove('all')
+
+
+function onStartUp() {
+  console.log(currentUser)
+  // if ($('.all-cards')hasClass('all')) {
+  //   $('.all-cards').remove('all')
   // }
-    // domUpdates.populateCards(recipesData);
-    // greetUser();
+    domUpdates.greetUser(currentUser);
+    domUpdates.populateCards(recipesData);
   }
 
 const shuffleUser = (array) => {
     array.sort(() => Math.random() - 0.5);
   }
 
-  $(document).ready(onStartup);
+// $(document).ready(onStartup);
+
+
 
 
 // function viewFavorites() {
@@ -180,29 +185,29 @@ const shuffleUser = (array) => {
 //   } else return
 // }
 //
-// function populateCards(recipes) {
-//   cardArea.innerHTML = '';
-//   if (cardArea.classList.contains('all')) {
-//     cardArea.classList.remove('all')
-//   }
-//   recipes.forEach(recipe => {
-//     cardArea.insertAdjacentHTML('afterbegin', `<div id='${recipe.id}'
-//     class='card'>
-//         <header id='${recipe.id}' class='card-header'>
-//           <label for='add-button' class='hidden'>Click to add recipe</label>
-//           <button id='${recipe.id}' aria-label='add-button' class='add-button card-button'>
-//             <img id='${recipe.id} favorite' class='add'
-//             src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
-//             recipes to cook'>
-//           </button>
-//           <label for='favorite-button' class='hidden'>Click to favorite recipe
-//           </label>
-//           <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${recipe.id} card-button'></button>
-//         </header>
-//           <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
-//           <img id='${recipe.id}' tabindex='0' class='card-picture'
-//           src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
-//     </div>`)
-//   })
-//   getFavorites();
-// };
+function populateCards(recipes) {
+  cardArea.innerHTML = '';
+  if (cardArea.classList.contains('all')) {
+    cardArea.classList.remove('all')
+  }
+  recipes.forEach(recipe => {
+    cardArea.insertAdjacentHTML('afterbegin', `<div id='${recipe.id}'
+    class='card'>
+        <header id='${recipe.id}' class='card-header'>
+          <label for='add-button' class='hidden'>Click to add recipe</label>
+          <button id='${recipe.id}' aria-label='add-button' class='add-button card-button'>
+            <img id='${recipe.id} favorite' class='add'
+            src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
+            recipes to cook'>
+          </button>
+          <label for='favorite-button' class='hidden'>Click to favorite recipe
+          </label>
+          <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${recipe.id} card-button'></button>
+        </header>
+          <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
+          <img id='${recipe.id}' tabindex='0' class='card-picture'
+          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
+    </div>`)
+  })
+  getFavorites();
+};
