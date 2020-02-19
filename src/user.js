@@ -1,4 +1,4 @@
-class User {
+class Users {
   constructor(usersData) {
     this.usersData = usersData;
   }
@@ -31,4 +31,4 @@ class User {
 }
 
 
-export default User;
+export default Users;
