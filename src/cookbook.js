@@ -30,8 +30,7 @@ class CookBook {
   //   }
 
     calculateCost() {
-      console.log(this.ingredientsData[0].estimatedCostInCents)
-      let dollars = this.ingredientsData[0].estimatedCostInCents / 100;
+      let dollars = this.ingredientsData.estimatedCostInCents / 100;
       return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
     }
   }

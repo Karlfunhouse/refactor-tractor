@@ -7,15 +7,32 @@
 // import User from './user';
 // import Cookbook from './cookbook';
 
+// let favButton = document.querySelector('.view-favorites');
+// let homeButton = document.querySelector('.home')
+// let cardArea = document.querySelector('.all-cards');
+// let cookbook = new Cookbook(recipeData);
+// let user, pantry;
+//
+// window.onload = onStartup();
+
+// homeButton.addEventListener('click', cardButtonConditionals);
+// favButton.addEventListener('click', viewFavorites);
+// cardArea.addEventListener('click', cardButtonConditionals);
+
+
 import CookBook from './cookbook';
+import Pantry from './pantry'
+import Users from './user'
+import $ from 'jquery';
 
 let user;
 let cookBook;
+let pantry;
 let usersData;
 let ingredientsData;
 let recipesData;
 
-
+$(document).ready(onStartup);
 
 
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
@@ -46,29 +63,18 @@ Promise.all([recipeData, ingredientData, userData])
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
-// let favButton = document.querySelector('.view-favorites');
-// let homeButton = document.querySelector('.home')
-// let cardArea = document.querySelector('.all-cards');
-// let cookbook = new Cookbook(recipeData);
-// let user, pantry;
-//
-// window.onload = onStartup();
-//
-// homeButton.addEventListener('click', cardButtonConditionals);
-// favButton.addEventListener('click', viewFavorites);
-// cardArea.addEventListener('click', cardButtonConditionals);
-//
-// function onStartup() {
-//   let userId = (Math.floor(Math.random() * 49) + 1)
-//   let newUser = users.find(user => {
-//     return user.id === Number(userId);
-//   });
-//   user = new User(userId, newUser.name, newUser.pantry)
-//   pantry = new Pantry(newUser.pantry)
-//   populateCards(cookbook.recipes);
-//   greetUser();
-// }
-//
+
+const onStartup = () => {
+  let userId = (Math.floor(Math.random() * 49) + 1)
+  let newUser = users.find(user => {
+    return user.id === Number(userId);
+  });
+  user = new Users()
+  pantry = new Pantry(newUser.pantry)
+  populateCards(cookbook.recipes);
+  greetUser();
+}
+
 // function viewFavorites() {
 //   if (cardArea.classList.contains('all')) {
 //     cardArea.classList.remove('all')
