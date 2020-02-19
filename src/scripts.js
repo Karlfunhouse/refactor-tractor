@@ -1,22 +1,29 @@
 // import './css/base.scss';
 // import './css/styles.scss';
-//
-//
-// import Pantry from './pantry';
-// import Recipe from './recipe';
-// import User from './user';
-// import Cookbook from './cookbook';
 
+
+// let favButton = document.querySelector('.view-favorites');
+// let homeButton = document.querySelector('.home')
+// let cardArea = document.querySelector('.all-cards');
+// let cookbook = new Cookbook(recipeData);
+// let user, pantry;
+
+// homeButton.addEventListener('click', cardButtonConditionals);
+// favButton.addEventListener('click', viewFavorites);
+// cardArea.addEventListener('click', cardButtonConditionals);
+
+import domUpdates from './domUpdates'
 import CookBook from './cookbook';
+import Pantry from './pantry'
+import Users from './user'
+import $ from 'jquery';
 
-let user;
+let currentUser;
 let cookBook;
+let currentUsersPantry;
 let usersData;
 let ingredientsData;
-let recipesData;
-
-
-
+let recipesData
 
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
   .then(response => response.json())
@@ -35,40 +42,37 @@ const recipeData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911
 
 Promise.all([recipeData, ingredientData, userData])
   .then(data => {
-    console.log('made-it');
     recipesData = data[0];
     ingredientsData = data[1];
     usersData = data[2];
   })
   .then(() => {
+    shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData);
-    console.log(cookBook)
+    currentUser = new Users(usersData[0])
+    currentUsersPantry = new Pantry(usersData[0].pantry)
+    console.log(cookBook, currentUser, currentUsersPantry)
+
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
-// let favButton = document.querySelector('.view-favorites');
-// let homeButton = document.querySelector('.home')
-// let cardArea = document.querySelector('.all-cards');
-// let cookbook = new Cookbook(recipeData);
-// let user, pantry;
-//
-// window.onload = onStartup();
-//
-// homeButton.addEventListener('click', cardButtonConditionals);
-// favButton.addEventListener('click', viewFavorites);
-// cardArea.addEventListener('click', cardButtonConditionals);
-//
-// function onStartup() {
-//   let userId = (Math.floor(Math.random() * 49) + 1)
-//   let newUser = users.find(user => {
-//     return user.id === Number(userId);
-//   });
-//   user = new User(userId, newUser.name, newUser.pantry)
-//   pantry = new Pantry(newUser.pantry)
-//   populateCards(cookbook.recipes);
-//   greetUser();
-// }
-//
+
+const onStartup = () => {
+  console.log(recipesData)
+  // if (cardArea.classList.contains('all')) {
+  //   cardArea.classList.remove('all')
+  // }
+    // domUpdates.populateCards(recipesData);
+    // greetUser();
+  }
+
+const shuffleUser = (array) => {
+    array.sort(() => Math.random() - 0.5);
+  }
+
+  $(document).ready(onStartup);
+
+
 // function viewFavorites() {
 //   if (cardArea.classList.contains('all')) {
 //     cardArea.classList.remove('all')
