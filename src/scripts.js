@@ -25,6 +25,9 @@ let usersData;
 let ingredientsData;
 let recipesData
 
+// $('.all-cards').click(cardButtonConditionals);
+// $('.view-favorites').click(viewFavorites);
+// $('.all-cards').click(cardButtonConditionals);
 
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
   .then(response => response.json())
@@ -50,7 +53,7 @@ Promise.all([recipeData, ingredientData, userData])
   .then(() => {
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData);
-    currentUser = new Users(ingredientsData, recipesData, usersData[0])
+    currentUser = new Users(usersData[0])
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
     console.log(cookBook, currentUser, currentUsersPantry)
@@ -61,17 +64,31 @@ Promise.all([recipeData, ingredientData, userData])
 
 
 function onStartUp() {
-  console.log(currentUser)
+  // console.log(cookBook.recipesData)
   // if ($('.all-cards')hasClass('all')) {
   //   $('.all-cards').remove('all')
   // }
     domUpdates.greetUser(currentUser);
-    domUpdates.populateCards(recipesData);
+    domUpdates.populateCards(cookBook);
   }
 
 const shuffleUser = (array) => {
     array.sort(() => Math.random() - 0.5);
   }
+
+const displayDirections = () => {
+  cookbook.recipesData.find(recipe => {
+    if (recipe.id === Number(event.target.id)) {
+      return recipe;
+    }
+  })
+  domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
+  // cardArea.classList.add('all');
+}
+
+const ingredientInfo = () => {
+  domUpdates.populateIngredientsNeeded();
+}
 
 // $(document).ready(onStartup);
 
