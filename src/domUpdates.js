@@ -3,32 +3,54 @@ import $ from 'jquery';
 export const domUpdates = {
 
  greetUser(usersData) {
-   console.log(usersData)
    $('.user-name').text(`${usersData.usersData.name}`);
  },
 
- populateCards(recipesData, recieveRecipeInfo) {
-  return recipesData.forEach(recipe => {
-    $('.all-cards').append('afterbegin', `<div id='${recipesData.id}'
+ populateCards(cookBook) {
+  return cookBook.recipesData.forEach(recipe => {
+    $('.all-cards').append(`<div id='${recipe.id}'
     class='card'>
-        <header id='${recipesData.id}' class='card-header'>
+        <header id='${recipe.id}' class='card-header'>
           <label for='add-button' class='hidden'>Click to add recipe</label>
-          <button id='${recipesData.id}' aria-label='add-button' class='add-button card-button'>
-            <img id='${recipesData.id} favorite' class='add'
+          <button id='${recipe.id}' aria-label='add-button' class='add-button card-button'>
+            <img id='${recipe.id} favorite' class='add'
             src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
             recipes to cook'>
           </button>
           <label for='favorite-button' class='hidden'>Click to favorite recipe
           </label>
-          <button id='${recipesData.id}' aria-label='favorite-button' class='favorite favorite${recipesData.id} card-button'></button>
+          <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${cookBook.recipesData.id} card-button'></button>
         </header>
-          <span id='${recipesData.id}' class='recipe-name'>${recipesData.name}</span>
-          <img id='${recipesData.id}' tabindex='0' class='card-picture'
-          src='${recipesData.image}' alt='click to view recipe for ${recipesData.name}'>
+          <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
+          <img id='${recipe.id}' tabindex='0' class='card-picture'
+          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
     </div>`)
   })
   // getFavorites();
 },
+
+//   populateRecipeInfo(cookBook, calculateCost) {
+//     $('.all-cards').append(`<h3>${cookBook.recipeData.name}</h3>
+//     <p class='all-recipe-info'>
+//     <strong>It will cost: </strong><span class='cost recipe-info'>
+//     $${calculateCost}</span><br><br>
+//     <strong>You will need: </strong><span class='ingredients recipe-info'></span>
+//     <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
+//     </span></ol>
+//     </p>`)
+// },
+//
+//  populateIngredientsNeeded(cookBook){
+//     return cookBook.ingredientsData.forEach(ingredient => {
+//       $('.ingredients').append('afterbegin', `<ul><li>
+//       ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
+//       ${ingredient.name}</li></ul>`)
+//   })
+//     return cookBook.recipeData.forEach(recipeInstruction => {
+//       $('.instructions').append('beforebegin', `<li>
+//       ${recipeInstruction.instruction}</li>`)
+//   }))
+// },
 }
 
 
