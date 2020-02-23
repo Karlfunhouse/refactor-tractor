@@ -11,7 +11,8 @@ let pantry;
 
 describe('Pantry', () => {
   beforeEach(() => {
-    pantry = new Pantry(ingredientsData, recipesData, usersData[0].pantry);
+    pantry = new Pantry(ingredientsData, recipesData, usersData[0].pantry)
+      // console.log(usersData[0].pantry);
 
   });
 
@@ -21,7 +22,14 @@ describe('Pantry', () => {
 
     it('should be an instance of Users', () => {
       expect(pantry).to.be.an.instanceof(Pantry);
+    });
 
-})
+    it('Users pantry should have a list of ingredients', () => {
+      expect(pantry.usersPantry.length).to.equal(52)
+    });
+
+    it('Should be able to get a list of ingredient names', () => {
+      expect(pantry.getIngredientNames().length).to.equal(36)
+    });
 
 })
