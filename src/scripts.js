@@ -51,6 +51,7 @@ Promise.all([recipeData, ingredientData, userData])
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
     $('.all-cards').click(cardButtonConditionals);
+    $('#home-button').click(homeButtonHandler);
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
@@ -74,14 +75,15 @@ const  cardButtonConditionals = (event)  => {
     //   favoriteCard(event);
     // } else
     if (event.target.classList.contains('card-picture')) {
-      // console.log('made-it')
       recipeHandler();
     }
-    // } else if (event.target.classList.contains('home')) {
-    //   favButton.innerHTML = 'View Favorites';
-    //   domUpdates.populateCards(cookbook);
-    // }
   }
+
+const homeButtonHandler = (event) => {
+  console.log('made-it')
+  $('.all-cards').empty();
+    domUpdates.populateCards(cookBook);
+}
 
 const recipeHandler = () => {
   console.log(cookBook.calculateCost())
