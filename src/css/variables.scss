@@ -1,0 +1,24 @@
+// FONT
+@mixin font($size) {
+  font-size: $size;
+}
+
+// SIZE MEASUREMENTS
+@mixin border($color, $style, $width) {
+  border: $width, $style, $color;
+}
+
+@mixin height($height) {
+  height: $height;
+}
+
+@mixin width($width) {
+  width: $width;
+}
+
+$main-font: 'Open Sans', sans-serif;
+
+// COLORS
+$dark-blue: #37515C;
+$light-blue: #D7F2FE;
+$off-white-background: #EBF5EE;
