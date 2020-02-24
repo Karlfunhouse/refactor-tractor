@@ -4,21 +4,3 @@ $primary-background: pink;
 body {
   background-color: $primary-background;
 }
-
-// MIXIN BASE
-
-@mixin flexBox($flex, $justifyContent) {
-  display: $flex;
-  justify-content: $justifyContent;
-}
-
-
-@mixin background($color, $image, $position, $repeat) {
-  background-color: $color;
-  background-image: $image;
-  background-position: $position;
-  background-repeat: $repeat;
-}
-@mixin margin($size) {
-  margin: $size;
-}
