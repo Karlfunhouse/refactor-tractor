@@ -6,78 +6,84 @@
 
 html {
   background-color: $dark-blue;
-  border: 2px solid #000;
-  // height: 100vh;
+  @include border(2px, solid, #000);
   @include height(100vh);
+  // border: 2px solid #000;
+  // height: 100vh;
 }
 
 body {
   box-sizing: border-box;
   font-family: $main-font;
-  margin: auto;
+  @include margin(auto);
+  // margin: auto;
 }
 
 
 .main-header {
   background-color: $off-white-background;
-  // border: 2px solid #000;
+  justify-content: $justifyContent;
   @include border(2px, solid, #000);
-  display: flex;
-  // height: auto;
+  @include display(flex);
   @include height(auto);
-  justify-content: space-between;
-  // width: 100%;
   @include width(100%);
+  // display: flex;
+  // border: 2px solid #000;
+  // height: auto;
+  // width: 100%;
 }
 
 .navButton {
   background-color: $off-white-background;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
-  // font-size: 130%;
   @include font(130%);
-  margin: 1%;
+  @include margin(1%);
+  // font-size: 130%;
+  // margin: 1%;
 }
 
 h1 {
   border-right: 2px solid #000;
-  // font-size: 255%;
-  @include font(255%);
+  padding-top: 10px;
+  text-align: $textAlign;
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 10px;
-  text-align: center;
-  width: 30%;
+  @include font(255%);
   @include width(30%);
+  // font-size: 255%;
+  // width: 30%;
 }
 
 .user-info {
-  // font-size: 180%;
+  text-align: $textAlign;
   @include font(180%);
-  margin: auto;
-  text-align: center;
-  // width: 40%
+  @include margin(auto);
   @include width(40%);
+  // font-size: 180%;
+  // margin: auto;
+  // width: 40%
 }
 
 .search-bar {
-  display: flex;
-  // height: 100%;
-  @include height(100%);
   margin: 10px 0px 10px 0px;
-  // width: 30%;
+  @include display(flex);
+  @include height(100%);
   @include width(30%);
+  // display: flex;
+  // height: 100%;
+  // width: 30%;
 }
 
 .search-button {
   background-color: $off-white-background;
-  // border: 1px solid #000;
-  @include border(1px, solid, #000);
-  // width: 20%;
-  @include width(20%);
-  // height: 58px;
-  @include height(58px);
   margin-top: 3px;
+  @include border(1px, solid, #000);
+  @include width(20%);
+  @include height(58px);
+  // border: 1px solid #000;
+  // width: 20%;
+  // height: 58px;
 }
 
 .search-image:hover,
@@ -96,43 +102,46 @@ h1 {
 }
 
 .search-input {
-  // border: 1px solid #000;
-  @include border(1px, solid, #000);
-  // font-size: 100%;
-  @include font(100%);
-  // height: 7vh;
-  @include height(7vh);
   margin: 3px 7px 0px 0px;
   padding-left: 10px;
-  // width: 90%;
+  @include border(1px, solid, #000);
+  @include font(100%);
+  @include height(7vh);
   @include width(90%);
+  // border: 1px solid #000;
+  // font-size: 100%;
+  // height: 7vh;
+  // width: 90%;
 }
 
 
 .card-button {
-  // border: 1px solid #000;
   @include border(1px, solid, #000);
-  // height: 27px;
   @include height(27px);
-  margin: 3px;
+  @include margin(3px);
+  // margin: 3px;
+  // border: 1px solid #000;
+  // height: 27px;
 }
 
 
 
 .add-button {
   background-color: $off-white-background;
-  display: flex;
-  // width: 12%;
+  @include display(flex);
   @include width(12%);
+  // display: flex;
+  // width: 12%;
 }
 
 .add {
-  // width: 100%;
   @include width(100%);
+  // width: 100%;
 }
 
 .hidden {
-  display: none;
+  @include display(none);
+  // display: none;
 }
 
 
@@ -141,17 +150,18 @@ h1 {
   background-image: url(https://image.flaticon.com/icons/svg/149/149222.svg);
   background-repeat: no-repeat;
   background-position: center;
-  // width: 13%;
   @include width(13%);
+  // width: 13%;
 }
 
 .all-cards {
-  display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(4, 1fr);
   padding: 30px 0 30px 30px;
-  // width: 95.5vw;
+  @include display(grid);
   @include width(95.5vw);
+  // display: grid;
+  // width: 95.5vw;
 }
 
 img {
@@ -160,18 +170,19 @@ img {
 
 .card {
   background-color: $light-blue;
-  // border: 3px solid #000;
   @include border(3px, solid, #000);
-  // width: 100%;
   @include width(100%);
+  // border: 3px solid #000;
+  // width: 100%;
 }
 
 
 .card-header {
   background-color: $off-white-background;
   border-bottom: 1px solid #000;
-  display: flex;
-  justify-content: space-between;
+  justify-content: $justifyContent;
+  @include display(flex);
+  // display: flex;
 }
 
 .all {
@@ -182,24 +193,24 @@ img {
 .all-recipe-info,
 ol {
   color: $off-white-background;
-  // font-size: 220%;
   @include font(220%);
-  // width: 100%;
   @include width(100%);
+  // font-size: 220%;
+  // width: 100%;
 }
 
 h3 {
   color: $off-white-background;
-  // font-size: 250%;
   @include font(250%);
+  // font-size: 250%;
 }
 
 .recipe-name {
-
-  display: block;
-  // font-size: 150%;
+  text-align: $textAlign;
+  @include display(block);
   @include font(150%);
-  text-align: center;
+  // display: block;
+  // font-size: 150%;
 }
 
 .card-picture:hover {
@@ -207,26 +218,26 @@ h3 {
 }
 
 .card-picture:active {
-  // border: 2px solid #000;
   @include border(2px, solid, #000);
+  // border: 2px solid #000;
 }
 
 .card-picture {
-  // border: 1px solid #000;
-  @include border(1px, solid, #000);
-  // height: 200px;
-  @include height(200px);
   margin: 10px 3% 8px 2.6%;
-  // width: 94%;
+  @include border(1px, solid, #000);
+  @include height(200px);
   @include width(94%);
+  // border: 1px solid #000;
+  // height: 200px;
+  // width: 94%;
 }
 
 main {
   background-color: $dark-blue;
-  // height: 100%;
   @include height(100%);
-  // width: 100%;
   @include width(100%);
+  // height: 100%;
+  // width: 100%;
 }
 
 .favorite-active {
