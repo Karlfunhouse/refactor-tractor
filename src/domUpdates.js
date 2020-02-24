@@ -6,6 +6,26 @@ export const domUpdates = {
    $('.user-name').text(`${usersData.usersData.name}`);
  },
 
+ populateIngredients(cookBook){
+    return  cookBook.recipesData.forEach(recipe => {
+      console.log(recipe)
+      recipe.ingredients.forEach(ingredient => {
+        $('.ingredients').append( `<ul><li>
+        ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
+        ${recipe.name}</li></ul>`)
+      })
+  })
+},
+
+  populateInstructions(cookBook) {
+    return cookBook.recipesData.forEach(recipe => {
+      recipe.instructions.forEach(ingredient => {
+      $('.instructions').append( `<li>
+      ${recipe.instruction}</li>`)
+    })
+  })
+},
+
  populateCards(cookBook) {
   return cookBook.recipesData.forEach(recipe => {
     $('.all-cards').append(`<div id='${recipe.id}'
@@ -31,14 +51,14 @@ export const domUpdates = {
 
   populateRecipeInfo(cookBook, calculateCost) {
     // console.log('made-it')
-    return cookBook.recipesData.find(recipe => {
+    let recipeInfo = cookBook.recipesData.find(recipe => {
       if (recipe.id === Number(event.target.id)) {
-        console.log(recipe)
-        // return recipe;
+        console.log(1  + recipe)
+        return recipe;
       }
     })
-    // $('.all-cards').addClass('all');
-    $('.all-cards').append(`<h3>${cookBook.recipesData.name}</h3>
+    $('.all-cards').empty();
+    $('.all-cards').append(`<h3>${recipeInfo.name}</h3>
     <p class='all-recipe-info'>
     <strong>It will cost: </strong><span class='cost recipe-info'>
     $${calculateCost}</span><br><br>
@@ -46,21 +66,11 @@ export const domUpdates = {
     <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
     </span></ol>
     </p>`)
-},
 
-//  populateIngredientsNeeded(cookBook){
-//    let ingredientsSpan = $('.ingredients');
-//    let instructionsSpan = $('.instructions');
-//     return cookBook.ingredientsData.forEach(ingredient => {
-//       ingredientsSpan.append( `<ul><li>
-//       ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
-//       ${ingredient.name}</li></ul>`)
-//   })
-//     return cookBook.recipesData.forEach(recipeInstruction => {
-//       instructionsSpan.append( `<li>
-//       ${recipeInstruction.instruction}</li>`)
-//   }))
-// },
+    this.populateInstructions(cookBook)
+    this.populateIngredients(cookBook)
+},
+}
 //
 // function displayDirections(event) {
 //   let newRecipeInfo = cookbook.recipes.find(recipe => {
@@ -95,7 +105,6 @@ export const domUpdates = {
 //   })
 // }
 
-}
 
 
 export default domUpdates;
