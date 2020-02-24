@@ -15,24 +15,25 @@ class CookBook {
   return searchResult.length;
   }
 
-  // calculateCost() {
-  //     let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
-  //       console.log(ingredient)
-  //       return this.ingredientsData.find(specificIngredient => {
-  //         if (specificIngredient.id === ingredient.id) {
-  //           return costCounter += (Number(specificIngredient.estimatedCostInCents) *
-  //           Number(ingredient.quantity.amount))
-  //         }
-  //       })
-  //       return counter
-  //     }, 0);
-  //     console.log(costForRecipe);
-  //   }
-
-    calculateCost() {
-      let dollars = this.ingredientsData.estimatedCostInCents / 100;
-      return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  calculateCost() {
+      let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
+        console.log(ingredient)
+        return this.ingredientsData.find(specificIngredient => {
+          if (specificIngredient.id === ingredient.id) {
+            return costCounter += (Number(specificIngredient.estimatedCostInCents) *
+            Number(ingredient.quantity.amount))
+          }
+        })
+        return counter
+      }, 0);
+      console.log(costForRecipe)
+      return costForRecipe;
     }
+
+    // calculateCost() {
+    //   let dollars = this.ingredientsData.estimatedCostInCents / 100;
+    //   return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    // }
   }
 
 export default CookBook;

@@ -8,7 +8,6 @@ export const domUpdates = {
 
  populateIngredients(cookBook){
     return  cookBook.recipesData.forEach(recipe => {
-      console.log(recipe)
       recipe.ingredients.forEach(ingredient => {
         $('.ingredients').append( `<ul><li>
         ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
@@ -21,7 +20,7 @@ export const domUpdates = {
     return cookBook.recipesData.forEach(recipe => {
       recipe.instructions.forEach(ingredient => {
       $('.instructions').append( `<li>
-      ${recipe.instruction}</li>`)
+      ${ingredient.instruction}</li>`)
     })
   })
 },
@@ -50,10 +49,8 @@ export const domUpdates = {
 },
 
   populateRecipeInfo(cookBook, calculateCost) {
-    // console.log('made-it')
     let recipeInfo = cookBook.recipesData.find(recipe => {
       if (recipe.id === Number(event.target.id)) {
-        console.log(1  + recipe)
         return recipe;
       }
     })
@@ -71,40 +68,5 @@ export const domUpdates = {
     this.populateIngredients(cookBook)
 },
 }
-//
-// function displayDirections(event) {
-//   let newRecipeInfo = cookbook.recipes.find(recipe => {
-//     if (recipe.id === Number(event.target.id)) {
-//       return recipe;
-//     }
-//   })
-//   let recipeObject = new Recipe(newRecipeInfo, ingredientsData);
-//   let cost = recipeObject.calculateCost()
-//   let costInDollars = (cost / 100).toFixed(2)
-//   cardArea.classList.add('all');
-//   cardArea.innerHTML = `<h3>${recipeObject.name}</h3>
-//   <p class='all-recipe-info'>
-//   <strong>It will cost: </strong><span class='cost recipe-info'>
-//   $${costInDollars}</span><br><br>
-//   <strong>You will need: </strong><span class='ingredients recipe-info'></span>
-//   <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
-//   </span></ol>
-//   </p>`;
-//   let ingredientsSpan = document.querySelector('.ingredients');
-//   let instructionsSpan = document.querySelector('.instructions');
-//   recipeObject.ingredients.forEach(ingredient => {
-//     ingredientsSpan.insertAdjacentHTML('afterbegin', `<ul><li>
-//     ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
-//     ${ingredient.name}</li></ul>
-//     `)
-//   })
-//   recipeObject.instructions.forEach(instruction => {
-//     instructionsSpan.insertAdjacentHTML('beforebegin', `<li>
-//     ${instruction.instruction}</li>
-//     `)
-//   })
-// }
-
-
 
 export default domUpdates;

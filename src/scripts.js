@@ -75,7 +75,7 @@ const  cardButtonConditionals = (event)  => {
     // } else
     if (event.target.classList.contains('card-picture')) {
       // console.log('made-it')
-      recipeHandler(event);
+      recipeHandler();
     }
     // } else if (event.target.classList.contains('home')) {
     //   favButton.innerHTML = 'View Favorites';
@@ -83,8 +83,8 @@ const  cardButtonConditionals = (event)  => {
     // }
   }
 
-const recipeHandler = (event) => {
-  console.log('made-it')
+const recipeHandler = () => {
+  console.log(cookBook.calculateCost())
   domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
  }
 
