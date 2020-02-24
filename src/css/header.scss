@@ -1,1 +1,25 @@
+.main-header {
+  background-color: $off-white-background;
+  justify-content: $justifyContent;
+  @include border(2px, solid, #000);
+  @include display(flex);
+  @include height(auto);
+  @include width(100%);
+}
 
+h1 {
+  border-right: 2px solid #000;
+  padding-top: 10px;
+  text-align: $textAlign;
+  margin-top: 0;
+  margin-bottom: 0;
+  @include font(255%);
+  @include width(30%);
+}
+
+.user-info {
+  text-align: $textAlign;
+  @include font(180%);
+  @include margin(auto);
+  @include width(40%);
+}
