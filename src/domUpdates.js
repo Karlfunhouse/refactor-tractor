@@ -11,7 +11,7 @@ export const domUpdates = {
       recipe.ingredients.forEach(ingredient => {
         $('.ingredients').append( `<ul><li>
         ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
-        ${recipe.name}</li></ul>`)
+        </li></ul>`)
       })
   })
 },
