@@ -1,5 +1,5 @@
 class Users {
-  constructor(usersData, favorites) {
+  constructor(usersData, favoriteRecipes) {
     this.usersData = usersData;
     this.favoritesRecipes = [];
   }

@@ -47,7 +47,7 @@ Promise.all([recipeData, ingredientData, userData])
   .then(() => {
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData);
-    currentUser = new Users(usersData[0])
+    currentUser = new Users(ingredientsData, recipesData, usersData[0])
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
     $('.all-cards').click(cardButtonConditionals);
