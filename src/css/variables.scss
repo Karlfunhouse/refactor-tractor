@@ -1,10 +1,12 @@
-// FONT
+// FONTS
 @mixin font($size) {
   font-size: $size;
 }
 
+$main-font: 'Open Sans', sans-serif;
+
 // SIZE MEASUREMENTS
-@mixin border($color, $style, $width) {
+@mixin border($width, $style, $color) {
   border: $width, $style, $color;
 }
 
@@ -16,7 +18,17 @@
   width: $width;
 }
 
-$main-font: 'Open Sans', sans-serif;
+@mixin margin($margin) {
+  margin: $margin;
+}
+
+// DISPLAY
+@mixin display($display) {
+  display: $display;
+}
+
+$justifyContent: space-between;
+$textAlign: center;
 
 // COLORS
 $dark-blue: #37515C;
