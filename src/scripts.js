@@ -20,7 +20,6 @@ let cardArea = $('.all-cards');
 // homeButton.addEventListener('click', cardButtonConditionals);
 // favButton.addEventListener('click', viewFavorites);
 // cardArea.addEventListener('click', cardButtonConditionals);
-// $('.all-cards').click(cardButtonConditionals);
 // $('.view-favorites').click(viewFavorites);
 // $('.all-cards').click(cardButtonConditionals);
 
@@ -51,15 +50,16 @@ Promise.all([recipeData, ingredientData, userData])
     currentUser = new Users(usersData[0])
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
-    console.log(cookBook, currentUser, currentUsersPantry)
+    $('.all-cards').click(cardButtonConditionals);
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
 
+
 function onStartUp() {
-  if ($('.all-cards')hasClass('all')) {
-    $('.all-cards').removeClass('all')
-  }
+  // if ($('.all-cards')hasClass('all')) {
+  //   $('.all-cards').removeClass('all')
+  // }
   // if (!user.favoriteRecipes.length) {
   //     favButton.innerHTML = 'You have no favorites!';
   //     populateCards(cookbook.recipes);
@@ -69,9 +69,24 @@ function onStartUp() {
     domUpdates.populateCards(cookBook);
   }
 
+const  cardButtonConditionals = (event)  => {
+    // if (event.target.classList.contains('favorite')) {
+    //   favoriteCard(event);
+    // } else
+    if (event.target.classList.contains('card-picture')) {
+      // console.log('made-it')
+      recipeHandler(event);
+    }
+    // } else if (event.target.classList.contains('home')) {
+    //   favButton.innerHTML = 'View Favorites';
+    //   populateCards(cookbook.recipes);
+    // }
+  }
+
 const recipeHandler = (event) => {
-  domeUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
-  domUpdates.populateIngredientsNeeded(cookBook);
+  console.log('made-it')
+  domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
+  // domUpdates.populateIngredientsNeeded(cookBook);
  }
 
 const shuffleUser = (array) => {
@@ -136,16 +151,7 @@ const shuffleUser = (array) => {
 //   }
 // }
 //
-// function cardButtonConditionals(event) {
-//   if (event.target.classList.contains('favorite')) {
-//     favoriteCard(event);
-//   } else if (event.target.classList.contains('card-picture')) {
-//     displayDirections(event);
-//   } else if (event.target.classList.contains('home')) {
-//     favButton.innerHTML = 'View Favorites';
-//     populateCards(cookbook.recipes);
-//   }
-// }
+
 //
 //
 // function displayDirections(event) {
