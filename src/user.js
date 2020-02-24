@@ -1,6 +1,7 @@
 class Users {
-  constructor(usersData) {
+  constructor(usersData, favorites) {
     this.usersData = usersData;
+    this.favoritesRecipes = [];
   }
 
   addToFavorites(recipe) {
