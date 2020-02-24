@@ -29,28 +29,70 @@ export const domUpdates = {
   // getFavorites();
 },
 
-//   populateRecipeInfo(cookBook, calculateCost) {
-//     $('.all-cards').append(`<h3>${cookBook.recipeData.name}</h3>
-//     <p class='all-recipe-info'>
-//     <strong>It will cost: </strong><span class='cost recipe-info'>
-//     $${calculateCost}</span><br><br>
-//     <strong>You will need: </strong><span class='ingredients recipe-info'></span>
-//     <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
-//     </span></ol>
-//     </p>`)
-// },
-//
-//  populateIngredientsNeeded(cookBook){
-//     return cookBook.ingredientsData.forEach(ingredient => {
-//       $('.ingredients').append('afterbegin', `<ul><li>
-//       ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
-//       ${ingredient.name}</li></ul>`)
-//   })
-//     return cookBook.recipeData.forEach(recipeInstruction => {
-//       $('.instructions').append('beforebegin', `<li>
-//       ${recipeInstruction.instruction}</li>`)
-//   }))
-// },
+  populateRecipeInfo(cookBook, calculateCost) {
+    let recipeInfo = cookBook.recipesData.find(recipe => {
+      if (recipe.id === Number(event.target.id)) {
+        return recipe;
+      }
+    })
+    $('.all-cards').addClass('all');
+    $('.all-cards').append(`<h3>${cookBook.recipesData.name}</h3>
+    <p class='all-recipe-info'>
+    <strong>It will cost: </strong><span class='cost recipe-info'>
+    $${calculateCost}</span><br><br>
+    <strong>You will need: </strong><span class='ingredients recipe-info'></span>
+    <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
+    </span></ol>
+    </p>`)
+},
+
+ populateIngredientsNeeded(cookBook){
+   let ingredientsSpan = $('.ingredients');
+   let instructionsSpan = $('.instructions');
+    return cookBook.ingredientsData.forEach(ingredient => {
+      ingredientsSpan.append( `<ul><li>
+      ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
+      ${ingredient.name}</li></ul>`)
+  })
+    return cookBook.recipesData.forEach(recipeInstruction => {
+      instructionsSpan.append( `<li>
+      ${recipeInstruction.instruction}</li>`)
+  }))
+},
+
+function displayDirections(event) {
+  let newRecipeInfo = cookbook.recipes.find(recipe => {
+    if (recipe.id === Number(event.target.id)) {
+      return recipe;
+    }
+  })
+  let recipeObject = new Recipe(newRecipeInfo, ingredientsData);
+  let cost = recipeObject.calculateCost()
+  let costInDollars = (cost / 100).toFixed(2)
+  cardArea.classList.add('all');
+  cardArea.innerHTML = `<h3>${recipeObject.name}</h3>
+  <p class='all-recipe-info'>
+  <strong>It will cost: </strong><span class='cost recipe-info'>
+  $${costInDollars}</span><br><br>
+  <strong>You will need: </strong><span class='ingredients recipe-info'></span>
+  <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
+  </span></ol>
+  </p>`;
+  let ingredientsSpan = document.querySelector('.ingredients');
+  let instructionsSpan = document.querySelector('.instructions');
+  recipeObject.ingredients.forEach(ingredient => {
+    ingredientsSpan.insertAdjacentHTML('afterbegin', `<ul><li>
+    ${ingredient.quantity.amount.toFixed(2)} ${ingredient.quantity.unit}
+    ${ingredient.name}</li></ul>
+    `)
+  })
+  recipeObject.instructions.forEach(instruction => {
+    instructionsSpan.insertAdjacentHTML('beforebegin', `<li>
+    ${instruction.instruction}</li>
+    `)
+  })
+}
+
 }
 
 
