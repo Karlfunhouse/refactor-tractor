@@ -1,17 +1,6 @@
 // import './css/base.scss';
 // import './css/styles.scss';
 
-
-// let favButton = document.querySelector('.view-favorites');
-// let homeButton = document.querySelector('.home')
-// let cardArea = document.querySelector('.all-cards');
-// let cookbook = new Cookbook(recipeData);
-// let user, pantry;
-
-// homeButton.addEventListener('click', cardButtonConditionals);
-// favButton.addEventListener('click', viewFavorites);
-// cardArea.addEventListener('click', cardButtonConditionals);
-
 import domUpdates from './domUpdates'
 import CookBook from './cookbook';
 import Pantry from './pantry'
@@ -24,7 +13,13 @@ let currentUsersPantry;
 let usersData;
 let ingredientsData;
 let recipesData
+let favButton = $('.view-favorites');
+let homeButton = $('.home')
+let cardArea = $('.all-cards');
 
+// homeButton.addEventListener('click', cardButtonConditionals);
+// favButton.addEventListener('click', viewFavorites);
+// cardArea.addEventListener('click', cardButtonConditionals);
 // $('.all-cards').click(cardButtonConditionals);
 // $('.view-favorites').click(viewFavorites);
 // $('.all-cards').click(cardButtonConditionals);
@@ -61,36 +56,28 @@ Promise.all([recipeData, ingredientData, userData])
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
 
-
-
 function onStartUp() {
-  // console.log(cookBook.recipesData)
-  // if ($('.all-cards')hasClass('all')) {
-  //   $('.all-cards').remove('all')
-  // }
+  if ($('.all-cards')hasClass('all')) {
+    $('.all-cards').removeClass('all')
+  }
+  // if (!user.favoriteRecipes.length) {
+  //     favButton.innerHTML = 'You have no favorites!';
+  //     populateCards(cookbook.recipes);
+  //     return
+  //   } else {
     domUpdates.greetUser(currentUser);
     domUpdates.populateCards(cookBook);
   }
 
+const recipeHandler = (event) => {
+  domeUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
+  domUpdates.populateIngredientsNeeded(cookBook);
+ }
+
 const shuffleUser = (array) => {
     array.sort(() => Math.random() - 0.5);
-  }
+ }
 
-const displayDirections = () => {
-  cookbook.recipesData.find(recipe => {
-    if (recipe.id === Number(event.target.id)) {
-      return recipe;
-    }
-  })
-  domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
-  // cardArea.classList.add('all');
-}
-
-const ingredientInfo = () => {
-  domUpdates.populateIngredientsNeeded();
-}
-
-// $(document).ready(onStartup);
 
 
 
