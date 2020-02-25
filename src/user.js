@@ -1,7 +1,7 @@
 class Users {
   constructor(usersData, favoriteRecipes) {
     this.usersData = usersData;
-    this.favoritesRecipes = [];
+    this.favoriteRecipes = [];
   }
 
   addToFavorites(recipe) {
