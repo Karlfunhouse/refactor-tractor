@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import CookBook from './cookbook';
+
 
 export const domUpdates = {
 
@@ -31,14 +33,14 @@ export const domUpdates = {
     class='card'>
         <header id='${recipe.id}' class='card-header'>
           <label for='add-button' class='hidden'>Click to add recipe</label>
-          <button id='${recipe.id}' aria-label='add-button' class='add-button card-button'>
+          <button id='${recipe.id}' aria-label='add-button' class='favorite-button add-button to-cook-button'>
             <img id='${recipe.id} favorite' class='add'
             src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
             recipes to cook'>
           </button>
           <label for='favorite-button' class='hidden'>Click to favorite recipe
           </label>
-          <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${cookBook.recipesData.id} card-button'></button>
+          <button id='${recipe.id}' aria-label='favorite-button' class='favorite  ${recipe.id} card-button'></button>
         </header>
           <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
           <img id='${recipe.id}' tabindex='0' class='card-picture'
@@ -66,6 +68,52 @@ export const domUpdates = {
 
     this.populateInstructions(cookBook)
     this.populateIngredients(cookBook)
+},
+
+populateFavorites(user) {
+ return user.favoriteRecipes.forEach(recipe => {
+   $('.all-cards').append(`<div id='${recipe.id}'
+   class='card'>
+       <header id='${recipe.id}' class='card-header'>
+         <label for='add-button' class='hidden'>Click to add recipe</label>
+         <button id='${recipe.id}' aria-label='add-button' class='favorite-button add-button to-cook-button'>
+           <img id='${recipe.id} favorite' class='add'
+           src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
+           recipes to cook'>
+         </button>
+         <label for='favorite-button' class='hidden'>Click to favorite recipe
+         </label>
+         <button id='${recipe.id}' aria-label='favorite-button' class='favorite ${recipe.id} card-button'></button>
+       </header>
+         <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
+         <img id='${recipe.id}' tabindex='0' class='card-picture'
+         src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
+   </div>`)
+ })
+ // getFavorites();
+},
+
+populateSearchedRecipes(foundRecipes) {
+ return foundRecipes.forEach(recipe => {
+   $('.all-cards').append(`<div id='${recipe.id}'
+   class='card'>
+       <header id='${recipe.id}' class='card-header'>
+         <label for='add-button' class='hidden'>Click to add recipe</label>
+         <button id='${recipe.id}' aria-label='add-button' class='favorite-button add-button to-cook-button'>
+           <img id='${recipe.id} favorite' class='add'
+           src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
+           recipes to cook'>
+         </button>
+         <label for='favorite-button' class='hidden'>Click to favorite recipe
+         </label>
+         <button id='${recipe.id}' aria-label='favorite-button' class='favorite  ${recipe.id} card-button'></button>
+       </header>
+         <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
+         <img id='${recipe.id}' tabindex='0' class='card-picture'
+         src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
+   </div>`)
+ })
+ // getFavorites();
 },
 }
 

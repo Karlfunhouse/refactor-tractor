@@ -73,7 +73,7 @@ describe('CookBook', () => {
   describe('CookBook Methods', () => {
 
     it('Should be able to filter through its array ingredients tag or name', () => {
-      expect(cookbook.findRecipe('snack')).to.equal(9);
+      expect(cookbook.findRecipe('snack').length).to.equal(9);
     });
 
     it('Should be able to calculate the cost for an ingredient', () => {
