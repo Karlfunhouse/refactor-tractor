@@ -74,14 +74,6 @@ body {
   @include width(12%);
 }
 
-.add {
-  @include width(100%);
-}
-
-.hidden {
-  @include display(none);
-}
-
 .favorite {
   background-color: $off-white-background;
   background-image: url(https://image.flaticon.com/icons/svg/149/149222.svg);
