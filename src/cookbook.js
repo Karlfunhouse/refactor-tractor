@@ -6,13 +6,15 @@ class CookBook {
 
   findRecipe(searchText){
     let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
-      if (recipe.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      if (recipe.name.includes(searchText.toLowerCase()) ||
       recipe.tags.includes(searchText.toLowerCase())) {
         searchedRecipes.push(recipe);
       }
+      // console.log(searchedRecipes)
       return searchedRecipes;
   }, [])
-  return searchResult.length;
+  console.log(searchResult)
+  return searchResult;
   }
 
    // calculateCost(){

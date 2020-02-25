@@ -13,10 +13,11 @@ let currentUsersPantry;
 let usersData;
 let ingredientsData;
 let recipesData
+let favorites = [];
+let searchValue = $('#search-input');
 // let favButton = $('.view-favorites');
 // let homeButton = $('.home')
 // let cardArea = $('.all-cards');
-let favorites = [];
 
 // homeButton.addEventListener('click', cardButtonConditionals);
 // favButton.addEventListener('click', viewFavorites);
@@ -55,6 +56,8 @@ Promise.all([recipeData, ingredientData, userData])
     $('#home-button').click(homeButtonHandler);
     $('#view-favorites-button').click(viewFavoritesHandler);
     $('.favorite').click(favoriteRecipe);
+    $('#search-button').click(searchHandler)
+    searchValue
     // $('.unfavorite').click(unFavoriteRecipe);
     $('.to-cook-button').click(addToCook);
   })
@@ -76,9 +79,6 @@ function onStartUp() {
   }
 
 const  cardButtonConditionals = (event)  => {
-    // if (event.target.classList.contains('favorite')) {
-    //   favoriteCard(event);
-    // } else
     if (event.target.classList.contains('card-picture')) {
       recipeHandler();
     }
@@ -93,6 +93,13 @@ const viewFavoritesHandler = () => {
   $('.all-cards').empty();
   domUpdates.populateFavorites(currentUser)
 
+}
+
+const searchHandler = () => {
+  event.preventDefault()
+  $('.all-cards').empty();
+  cookBook.findRecipe(searchValue.val());
+  console.log('made-it')
 }
 
 const favoriteRecipe = (event) => {
