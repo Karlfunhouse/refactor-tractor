@@ -1,12 +1,19 @@
 class Users {
-  constructor(usersData, favoriteRecipes) {
+  constructor(usersData, favoriteRecipes, tooCook) {
     this.usersData = usersData;
-    this.favoriteRecipes = [];
+    this.favoriteRecipes = []
+    this.tooCook = [];
   }
 
   addToFavorites(recipe) {
     if (!this.favoriteRecipes.includes(recipe)) {
       this.favoriteRecipes.push(recipe)
+    }
+  }
+
+  addToCook(recipe) {
+    if (!this.tooCook.includes(recipe)) {
+      this.tooCook.push(recipe)
     }
   }
 
