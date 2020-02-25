@@ -1,0 +1,36 @@
+// FONTS
+@mixin font($size) {
+  font-size: $size;
+}
+
+$main-font: 'Open Sans', sans-serif;
+
+// SIZE MEASUREMENTS
+@mixin border($width, $style, $color) {
+  border: $width, $style, $color;
+}
+
+@mixin height($height) {
+  height: $height;
+}
+
+@mixin width($width) {
+  width: $width;
+}
+
+@mixin margin($margin) {
+  margin: $margin;
+}
+
+// DISPLAY
+@mixin display($display) {
+  display: $display;
+}
+
+$justifyContent: space-between;
+$textAlign: center;
+
+// COLORS
+$dark-blue: #37515C;
+$light-blue: #D7F2FE;
+$off-white-background: #EBF5EE;
