@@ -1,9 +1,7 @@
-import CookBook from "../src/cookbook"
-
-class Users extends CookBook {
-  constructor(ingredientsData, recipesData, usersData) {
-    super(ingredientsData, recipesData);
+class Users {
+  constructor(usersData, favoriteRecipes) {
     this.usersData = usersData;
+    this.favoritesRecipes = [];
   }
 
   addToFavorites(recipe) {
