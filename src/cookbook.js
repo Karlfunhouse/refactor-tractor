@@ -4,7 +4,7 @@ class CookBook {
     this.recipesData = recipesData;
   }
 
-  findRecipe(searchText) {
+  findRecipe(searchText){
     let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
       if (recipe.name.toLowerCase().includes(searchText.toLowerCase()) ||
       recipe.tags.includes(searchText.toLowerCase())) {
@@ -15,9 +15,9 @@ class CookBook {
   return searchResult.length;
   }
 
-  calculateCost() {
+   calculateCost(){
+    // console.log(this.recipesData)
       let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
-        console.log(ingredient)
         return this.ingredientsData.find(specificIngredient => {
           if (specificIngredient.id === ingredient.id) {
             return costCounter += (Number(specificIngredient.estimatedCostInCents) *
@@ -26,7 +26,6 @@ class CookBook {
         })
         return counter
       }, 0);
-      console.log(costForRecipe)
       return costForRecipe;
     }
 
