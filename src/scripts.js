@@ -14,6 +14,7 @@ let usersData;
 let ingredientsData;
 let recipesData
 let favorites = [];
+let searchedList = [];
 let searchValue = $('#search-input');
 // let favButton = $('.view-favorites');
 // let homeButton = $('.home')
@@ -48,7 +49,7 @@ Promise.all([recipeData, ingredientData, userData])
   })
   .then(() => {
     shuffleUser(usersData);
-    cookBook = new CookBook(ingredientsData, recipesData);
+    cookBook = new CookBook(ingredientsData, recipesData, searchedList);
     currentUser = new Users(usersData[0], favorites)
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
@@ -66,14 +67,6 @@ Promise.all([recipeData, ingredientData, userData])
 
 
 function onStartUp() {
-  // if (!user.favoriteRecipes.length) {
-  //     favButton.innerHTML = 'You have no favorites!';
-  //     populateCards(cookbook.recipes);
-  //     return
-  //   } else {
-  // if ($('.all-cards')hasClass('all')) {
-  //   $('.all-cards').removeClass('all')
-  // }
     domUpdates.greetUser(currentUser);
     domUpdates.populateCards(cookBook);
   }
@@ -98,20 +91,19 @@ const viewFavoritesHandler = () => {
 const searchHandler = () => {
   event.preventDefault()
   $('.all-cards').empty();
-  cookBook.findRecipe(searchValue.val());
-  console.log('made-it')
+  let searchedList = cookBook.findRecipe(searchValue.val());
+  domUpdates.populateSearchedRecipes(searchedList);
 }
 
 const favoriteRecipe = (event) => {
   console.log('favorite')
   let specificRecipe = cookBook.recipesData.find(recipe => {
     if (recipe.id  === Number(event.target.id)) {
-      // $(recipe.id).css('background-color', 'red');
+      $('.target').toggle('background-color', 'red');
       return recipe;
     }
   })
   currentUser.addToFavorites(specificRecipe);
-  console.log(currentUser)
 }
 
 // const unFavoriteRecipe = (event) => {

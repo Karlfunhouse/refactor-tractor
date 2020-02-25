@@ -1,7 +1,9 @@
 class CookBook {
-  constructor(ingredientsData, recipesData) {
+  constructor(ingredientsData, recipesData, searchedList) {
     this.ingredientsData = ingredientsData;
     this.recipesData = recipesData;
+    this.searchedList = [];
+
   }
 
   findRecipe(searchText){
@@ -13,7 +15,7 @@ class CookBook {
       // console.log(searchedRecipes)
       return searchedRecipes;
   }, [])
-  console.log(searchResult)
+  // console.log(searchResult)
   return searchResult;
   }
 
