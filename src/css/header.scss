@@ -1,5 +1,7 @@
+@import 'variables-and-mixins';
+
 .main-header {
-  background-color: $off-white-background;
+  background-color: $white-background;
   justify-content: $justifyContent;
   @include border(2px, solid, #000);
   @include display(flex);

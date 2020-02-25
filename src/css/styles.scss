@@ -1,7 +1,6 @@
 @import 'header';
-@import 'body';
 @import 'recipe-cards';
-@import 'variables';
+@import 'variables-and-mixins';
 
 html {
   background-color: $dark-blue;
@@ -16,7 +15,7 @@ body {
 }
 
 .navButton {
-  background-color: $off-white-background;
+  background-color: $white-background;
   border-left: 1px solid #000;
   border-right: 1px solid #000;
   @include font(130%);
@@ -31,7 +30,7 @@ body {
 }
 
 .search-button {
-  background-color: $off-white-background;
+  background-color: $white-background;
   margin-top: 3px;
   @include border(1px, solid, #000);
   @include width(20%);
@@ -69,13 +68,13 @@ body {
 }
 
 .add-button {
-  background-color: $off-white-background;
+  background-color: $white-background;
   @include display(flex);
   @include width(12%);
 }
 
 .favorite {
-  background-color: $off-white-background;
+  background-color: $white-background;
   background-image: url(https://image.flaticon.com/icons/svg/149/149222.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -93,13 +92,13 @@ img {
 
 .all-recipe-info,
 ol {
-  color: $off-white-background;
+  color: $white-background;
   @include font(220%);
   @include width(100%);
 }
 
 h3 {
-  color: $off-white-background;
+  color: $white-background;
   @include font(250%);
 }
 
