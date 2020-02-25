@@ -1,4 +1,3 @@
-import './css/base.scss';
 import './css/styles.scss';
 
 import domUpdates from './domUpdates'
@@ -15,6 +14,7 @@ let ingredientsData;
 let recipesData
 let favorites = [];
 let searchedList = [];
+let toCook = [];
 let searchValue = $('#search-input');
 // let favButton = $('.view-favorites');
 // let homeButton = $('.home')
@@ -50,7 +50,7 @@ Promise.all([recipeData, ingredientData, userData])
   .then(() => {
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData, searchedList);
-    currentUser = new Users(usersData[0], favorites)
+    currentUser = new Users(usersData[0], favorites, toCook)
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
     $('.all-cards').click(cardButtonConditionals);
@@ -60,7 +60,7 @@ Promise.all([recipeData, ingredientData, userData])
     $('#search-button').click(searchHandler)
     searchValue
     // $('.unfavorite').click(unFavoriteRecipe);
-    $('.to-cook-button').click(addToCook);
+    $('.to-cook-button').click(cookMe);
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
@@ -99,16 +99,36 @@ const favoriteRecipe = (event) => {
   console.log('favorite')
   let specificRecipe = cookBook.recipesData.find(recipe => {
     if (recipe.id  === Number(event.target.id)) {
-      $('.target').toggle('background-color', 'red');
+      $(`.${recipe.id}`).addClass('favorite-active');
       return recipe;
     }
   })
   currentUser.addToFavorites(specificRecipe);
 }
 
+const cookMe = (event) => {
+  console.log('to-cook')
+  let cookMe = cookBook.recipesData.find(recipe => {
+    if (recipe.id  === Number(event.target.id)) {
+      // $(`.${recipe.id}`).addClass('favorite-active');
+      return recipe;
+    }
+  })
+  console.log(cookMe)
+  currentUser.addToCook(cookMe);
+}
+
+// const toggleFavoriteHelper = () => {
+//   if (event.target.classList.contains('favorite-active')) {
+//     event.target.classList.remove('favorite-active');
+//   }
+//   currentUser.removeFromFavorites(specificRecipe);
+// }
+
+
 // const unFavoriteRecipe = (event) => {
 //   console.log('unfavorite')
-//   let specificRecipe = cookBook.recipesData.find(recipe => {
+//   return specificRecipe = cookBook.recipesData.find(recipe => {
 //     if (recipe.id  === Number(event.target.id)) {
 //       return recipe;
 //     }
