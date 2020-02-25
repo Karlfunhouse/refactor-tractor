@@ -100,27 +100,27 @@ const favoriteRecipe = (event) => {
     }
   })
   currentUser.addToFavorites(specificRecipe);
-  if()
+  // if()
 }
 
 const cookMe = (event) => {
   console.log('to-cook')
-  let cookMe = cookBook.recipesData.find(recipe => {
+  let letscook = cookBook.recipesData.find(recipe => {
     if (recipe.id  === Number(event.target.id)) {
       // $(`.${recipe.id}`).addClass('favorite-active');
       return recipe;
     }
   })
-  console.log(cookMe)
-  currentUser.addToCook(cookMe);
+  currentUser.addToCook(letscook);
+  console.log(currentUser)
 }
 
-const toggleFavoriteHelper = () => {
-  if (event.target.classList.contains('favorite-active')) {
-    event.target.classList.remove('favorite-active');
-  }
-  currentUser.removeFromFavorites(specificRecipe);
-}
+// const toggleFavoriteHelper = (specificRecipe) => {
+//   if (event.target.classList.contains('favorite-active')) {
+//     event.target.classList.remove('favorite-active');
+//   }
+//   currentUser.removeFromFavorites(specificRecipe);
+// }
 
 
 // const unFavoriteRecipe = (event) => {
@@ -133,10 +133,6 @@ const toggleFavoriteHelper = () => {
 //   currentUser.removeFromFavorites(specificRecipe);
 //   console.log(currentUser)
 // }
-
-const addToCook = () => {
-  console.log('to-cook')
-}
 
 const recipeHandler = () => {
   // console.log(cookBook.calculateCost())
