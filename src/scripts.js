@@ -16,6 +16,7 @@ let recipesData
 let favButton = $('.view-favorites');
 let homeButton = $('.home')
 let cardArea = $('.all-cards');
+let favorites = [];
 
 // homeButton.addEventListener('click', cardButtonConditionals);
 // favButton.addEventListener('click', viewFavorites);
@@ -47,7 +48,7 @@ Promise.all([recipeData, ingredientData, userData])
   .then(() => {
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData);
-    currentUser = new Users(ingredientsData, recipesData, usersData[0])
+    currentUser = new Users(usersData[0], favorites)
     currentUsersPantry = new Pantry(usersData[0].pantry)
     onStartUp()
     $('.all-cards').click(cardButtonConditionals);
@@ -86,7 +87,6 @@ const homeButtonHandler = (event) => {
 }
 
 const recipeHandler = () => {
-  console.log(cookBook.calculateCost())
   domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost());
  }
 
