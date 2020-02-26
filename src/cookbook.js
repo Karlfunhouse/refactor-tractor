@@ -8,16 +8,27 @@ class CookBook {
 
   findRecipe(searchText){
     let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
-      if (recipe.name.includes(searchText.toLowerCase()) ||
+      if (recipe.name.toLowerCase().includes(searchText.toLowerCase()) ||
       recipe.tags.includes(searchText.toLowerCase())) {
         searchedRecipes.push(recipe);
       }
-      // console.log(searchedRecipes)
       return searchedRecipes;
-  }, [])
-  // console.log(searchResult)
-  return searchResult;
+    }, [])
+    return searchResult;
   }
+
+  // findRecipeByName(searchText) {
+  //   let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
+  //     if (recipe.name.includes(searchText.toLowerCase()) ||
+  //       recipe.name.includes(searchText.toLowerCase())) {
+  //         searchedRecipes.push(recipe);
+  //       }
+  //       return searchedRecipes;
+  //   }, [])
+  //   return searchResult;
+  //   }
+  // }
+
 
    // calculateCost(){
    //    let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
