@@ -63,6 +63,7 @@ Promise.all([recipeData, ingredientData, userData])
 
 
 
+<
 function onStartUp() {
     domUpdates.greetUser(currentUser);
     domUpdates.populateCards(cookBook);
@@ -124,6 +125,7 @@ const cookMe = (event) => {
 // }
 
 
+
 // const unFavoriteRecipe = (event) => {
 //   console.log('unfavorite')
 //   return specificRecipe = cookBook.recipesData.find(recipe => {
@@ -144,9 +146,6 @@ const recipeHandler = () => {
 const shuffleUser = (array) => {
     array.sort(() => Math.random() - 0.5);
  }
-
-
-
 
 
 
