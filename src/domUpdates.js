@@ -46,7 +46,6 @@ export const domUpdates = {
           src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
     </div>`)
   })
-  // getFavorites();
 },
 
   populateRecipeInfo(cookBook, calculateCost) {
@@ -89,7 +88,6 @@ populateFavorites(user) {
          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
    </div>`)
  })
- // getFavorites();
 },
 
 populateSearchedRecipes(foundRecipes) {
@@ -112,8 +110,18 @@ populateSearchedRecipes(foundRecipes) {
          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
    </div>`)
  })
- // getFavorites();
 },
+
+showUsersPantry(usersPantry) {
+  return usersPantry.forEach(item => {
+    $('.all-cards').append(
+      `<div class="pantry-card"
+      <div class="pantry-header">
+        <h3>${item.name}: ${item.amount}</h3>
+      </div>
+    </div>`)
+  })
+}
 }
 
 export default domUpdates;

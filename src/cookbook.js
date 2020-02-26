@@ -12,10 +12,8 @@ class CookBook {
       recipe.tags.includes(searchText.toLowerCase())) {
         searchedRecipes.push(recipe);
       }
-      // console.log(searchedRecipes)
       return searchedRecipes;
   }, [])
-  // console.log(searchResult)
   return searchResult;
   }
 

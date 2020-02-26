@@ -43,7 +43,7 @@ Promise.all([recipeData, ingredientData, userData])
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData, searchedList);
     currentUser = new Users(usersData[0], favorites, toCook)
-    currentUsersPantry = new Pantry(usersData[0].pantry)
+    currentUsersPantry = new Pantry(ingredientsData, recipesData, usersData[0].pantry)
     onStartUp()
     $('.all-cards').click(cardButtonConditionals);
     $('#home-button').click(homeButtonHandler);
@@ -52,6 +52,8 @@ Promise.all([recipeData, ingredientData, userData])
     $('#search-button').click(searchHandler);
     searchValue;
     $('.to-cook-button').click(cookMe);
+    $('#pantry-button').click(viewPantryHandler);
+
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
@@ -70,6 +72,12 @@ const cardButtonConditionals = (event)  => {
 const homeButtonHandler = (event) => {
   $('.all-cards').empty();
     domUpdates.populateCards(cookBook);
+}
+
+const viewPantryHandler = () => {
+  $('.all-cards').empty();
+  console.log(currentUsersPantry)
+  domUpdates.showUsersPantry(currentUsersPantry.getIngredientNames())
 }
 
 const viewFavoritesHandler = () => {
