@@ -11,26 +11,32 @@ describe.only('domUpdates.js', () => {
   it('Should invoke greetUser', () => {
     expect(domUpdates.greetUser()).to.equal('User\'s Name');
   });
+
   chai.spy.on(domUpdates, 'populateIngredients', () => 'All ingredients');
   it('Should invoke populateIngredients', () => {
     expect(domUpdates.populateIngredients()).to.equal('All ingredients');
   });
+
   chai.spy.on(domUpdates, 'populateInstructions', () => 'Recipe Instructions');
   it('Should invoke populateInstructions', () => {
     expect(domUpdates.populateInstructions()).to.equal('Recipe Instructions');
   });
+
   chai.spy.on(domUpdates, 'populateCards', () => 'All Recipe Cards');
   it('Should invoke populateCards', () => {
     expect(domUpdates.populateCards()).to.equal('All Recipe Cards');
   });
+
   chai.spy.on(domUpdates, 'populateRecipeInfo', () => 'Recipe Info');
   it('Should invoke populateRecipeInfo', () => {
     expect(domUpdates.populateRecipeInfo()).to.equal('Recipe Info');
   });
+
   chai.spy.on(domUpdates, 'populateFavorites', () => 'User\'s favorite recipes');
   it('Should invoke populateFavorites', () => {
     expect(domUpdates.populateFavorites()).to.equal('User\'s favorite recipes');
   });
+  
   chai.spy.on(domUpdates, 'populateSearchedRecipes', () => 'Searched recipes by user');
   it('Should invoke populateSearchedRecipes', () => {
     expect(domUpdates.populateSearchedRecipes()).to.equal('Searched recipes by user');
