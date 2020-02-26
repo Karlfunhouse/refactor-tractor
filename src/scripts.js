@@ -16,11 +16,6 @@ let favorites = [];
 let searchedList = [];
 let toCook = [];
 let searchValue = $('#search-input');
-// homeButton.addEventListener('click', cardButtonConditionals);
-// favButton.addEventListener('click', viewFavorites);
-// cardArea.addEventListener('click', cardButtonConditionals);
-// $('.view-favorites').click(viewFavorites);
-// $('.all-cards').click(cardButtonConditionals);
 
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
   .then(response => response.json())
@@ -46,9 +41,9 @@ Promise.all([recipeData, ingredientData, userData])
   .then(() => {
     shuffleUser(usersData);
     cookBook = new CookBook(ingredientsData, recipesData, searchedList);
-    currentUser = new Users(usersData[0], favorites, toCook);
-    currentUsersPantry = new Pantry(usersData[0].pantry);
-    onStartUp();
+    currentUser = new Users(usersData[0], favorites, toCook)
+    currentUsersPantry = new Pantry(ingredientsData, recipesData, usersData[0].pantry)
+    onStartUp()
     $('.all-cards').click(cardButtonConditionals);
     $('#home-button').click(homeButtonHandler);
     $('#view-favorites-button').click(viewFavoritesHandler);
@@ -57,8 +52,9 @@ Promise.all([recipeData, ingredientData, userData])
     $('#search-button').click(searchHandler);
     $('.add').click(cookMe);
     searchValue;
-    // $('.unfavorite').click(unFavoriteRecipe);
     $('.to-cook-button').click(cookMe);
+    $('#pantry-button').click(viewPantryHandler);
+
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
@@ -77,6 +73,12 @@ const cardButtonConditionals = (event)  => {
 const homeButtonHandler = (event) => {
   $('.all-cards').empty();
     domUpdates.populateCards(cookBook);
+}
+
+const viewPantryHandler = () => {
+  $('.all-cards').empty();
+  console.log(currentUsersPantry)
+  domUpdates.showUsersPantry(currentUsersPantry.getIngredientNames())
 }
 
 const viewFavoritesHandler = () => {
@@ -116,6 +118,14 @@ const cookMe = (event) => {
 
 }
 
+const recipeHandler = () => {
+  domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost(cookBook.recipesData));
+ }
+
+const shuffleUser = (array) => {
+    array.sort(() => Math.random() - 0.5);
+ }
+
 // const toggleFavoriteHelper = (specificRecipe) => {
 //   if (event.target.classList.contains('favorite-active')) {
 //     event.target.classList.remove('favorite-active');
@@ -135,17 +145,6 @@ const cookMe = (event) => {
 //   currentUser.removeFromFavorites(specificRecipe);
 //   console.log(currentUser)
 // }
-
-const recipeHandler = () => {
-  // console.log(cookBook.calculateCost())
-  // , cookBook.calculateCost()
-  domUpdates.populateRecipeInfo(cookBook);
- }
-
-const shuffleUser = (array) => {
-    array.sort(() => Math.random() - 0.5);
- }
-
 
 
 // function favoriteCard(event) {

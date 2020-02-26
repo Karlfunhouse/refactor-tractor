@@ -46,7 +46,6 @@ export const domUpdates = {
           src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
     </div>`)
   })
-  // getFavorites();
 },
 
   populateRecipeInfo(cookBook, calculateCost) {
@@ -59,7 +58,7 @@ export const domUpdates = {
     $('.all-cards').append(`<h3>${recipeInfo.name}</h3>
     <p class='all-recipe-info'>
     <strong>It will cost: </strong><span class='cost recipe-info'>
-    $${calculateCost}</span><br><br>
+    ${calculateCost}</span><br><br>
     <strong>You will need: </strong><span class='ingredients recipe-info'></span>
     <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
     </span></ol>
@@ -89,7 +88,6 @@ populateFavorites(user) {
          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
    </div>`)
  })
- // getFavorites();
 },
 
 populateToCook(user) {
@@ -134,8 +132,18 @@ populateSearchedRecipes(foundRecipes) {
          src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
    </div>`)
  })
- // getFavorites();
 },
+
+showUsersPantry(usersPantry) {
+  return usersPantry.forEach(item => {
+    $('.all-cards').append(
+      `<div class="pantry-card"
+      <div class="pantry-header">
+        <h3>${item.name}: ${item.amount}</h3>
+      </div>
+    </div>`)
+  })
+}
 }
 
 export default domUpdates;

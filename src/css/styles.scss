@@ -92,6 +92,7 @@ img {
 
 .all-recipe-info,
 ol {
+  overflow: scroll;
   color: $white-background;
   @include font(220%);
   @include width(100%);

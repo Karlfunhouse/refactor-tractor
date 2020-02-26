@@ -12,8 +12,6 @@ let pantry;
 describe('Pantry', () => {
   beforeEach(() => {
     pantry = new Pantry(ingredientsData, recipesData, usersData[0].pantry)
-      // console.log(usersData[0].pantry);
-
   });
 
     it('should be a function', () => {

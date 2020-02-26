@@ -2,7 +2,7 @@ class Users {
   constructor(usersData, favoriteRecipes, tooCook) {
     this.usersData = usersData;
     this.favoriteRecipes = []
-    this.tooCook = [];
+    this.toCook = [];
   }
 
   addToFavorites(recipe) {
@@ -12,8 +12,8 @@ class Users {
   }
 
   addToCook(recipe) {
-    if (!this.tooCook.includes(recipe)) {
-      this.tooCook.push(recipe)
+    if (!this.toCook.includes(recipe)) {
+      this.toCook.push(recipe)
     }
 
   }
@@ -22,6 +22,12 @@ class Users {
     const i = this.favoriteRecipes.indexOf(recipe);
     this.favoriteRecipes.splice(i, 1)
   }
+
+  removeToCook(recipe) {
+    const i = this.toCook.indexOf(recipe);
+    this.toCook.splice(i, 1)
+  }
+
 
   filterFavorites(tag) {
     return this.favoriteRecipes.filter(recipe => {

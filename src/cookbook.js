@@ -15,54 +15,21 @@ class CookBook {
       return searchedRecipes;
     }, [])
     return searchResult;
-  }
+  } 
 
-  // findRecipeByName(searchText) {
-  //   let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
-  //     if (recipe.name.includes(searchText.toLowerCase()) ||
-  //       recipe.name.includes(searchText.toLowerCase())) {
-  //         searchedRecipes.push(recipe);
-  //       }
-  //       return searchedRecipes;
-  //   }, [])
-  //   return searchResult;
-  //   }
-  // }
-
-
-   // calculateCost(){
-   //    let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
-   //      return this.ingredientsData.find(specificIngredient => {
-   //        if (specificIngredient.id === ingredient.id) {
-   //          return costCounter += (Number(specificIngredient.estimatedCostInCents) *
-   //          Number(ingredient.quantity.amount))
-   //        }
-   //      })
-   //      console.log(counter)
-   //      return counter
-   //    }, 0);
-   //    return costForRecipe;
-   //  }
-
-
-    calculateCost() {
-      // console.log(this.ingredientsData[0].estimatedCostInCents)
-      let dollars = this.ingredientsData[0].estimatedCostInCents / 100;
-      return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
-    }
-    // calculateCost() {
-    //   let calculateRecipe = this.recipesData.reduce((counter, recipe) => {
-    //       return recipe.ingredients.filter(ingredient => {
-    //         console.log(ingredient.id)
-    //         if(ingredient.id.includes(this.ingredientData)){
-    //           console.log('made-it')
-    //         }
-    //       })
-    //     return counter
-    //   }, 0)
-    //   // let dollars = this.ingredientsData.estimatedCostInCents / 100;
-    //   // return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
-    // }
+   calculateCost(recipe) {
+   let dollars = this.ingredientsData.reduce((counter, ingredient) => {
+    let matchingIngredients = recipe.filter(recipeIngredient => {
+      recipeIngredient.ingredients.forEach(item => {
+        if(item.id === ingredient.id) {
+          counter += ingredient.estimatedCostInCents;
+        }
+      })
+     })
+     return counter / 100;
+   }, 0)
+   return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+ };
   }
 
 export default CookBook;

@@ -4,9 +4,6 @@ class Pantry extends CookBook {
   constructor(ingredientsData, recipesData, usersPantry) {
     super(ingredientsData, recipesData)
     this.usersPantry = usersPantry;
-    // console.log('ingredientsData', ingredientsData);
-    // console.log('recipesData', recipesData);
-    // console.log('usersPantry', usersPantry);
   }
 
   // Determine whether my pantry has enough ingredients to cook a given meal
@@ -17,18 +14,14 @@ class Pantry extends CookBook {
         ingredientList.push({name: ingredient.name, amount: pantryIngredient.amount})
         }
       })
-      // console.log(ingredientList);
       return ingredientList
     }, [])
   };
 
-  // Determine the amount of ingredients still needed to cook a given meal, based on what’s in my pantry
 
   checkIngredientSupply() {
       const recipeIngredients = this.recipesData[0].ingredients;
-      // console.log(recipeIngredients);
       const pantry = this.usersPantry;
-      // console.log(pantry);
       return recipeIngredients.map(recipeIngredient => {
         const thePantryItem = pantry.find(pantryItem => pantryItem.ingredient === recipeIngredient.id)
     if (!thePantryItem) {

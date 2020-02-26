@@ -6,7 +6,7 @@ const expect = chai.expect;
 const spies = require('chai-spies');
 chai.use(spies);
 
-describe.only('domUpdates.js', () => {
+describe('domUpdates.js', () => {
   chai.spy.on(domUpdates, 'greetUser', () => 'User\'s Name');
   it('Should invoke greetUser', () => {
     expect(domUpdates.greetUser()).to.equal('User\'s Name');
@@ -36,7 +36,7 @@ describe.only('domUpdates.js', () => {
   it('Should invoke populateFavorites', () => {
     expect(domUpdates.populateFavorites()).to.equal('User\'s favorite recipes');
   });
-  
+
   chai.spy.on(domUpdates, 'populateSearchedRecipes', () => 'Searched recipes by user');
   it('Should invoke populateSearchedRecipes', () => {
     expect(domUpdates.populateSearchedRecipes()).to.equal('Searched recipes by user');
