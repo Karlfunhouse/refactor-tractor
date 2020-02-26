@@ -19,6 +19,10 @@ describe.only('domUpdates.js', () => {
   it('Should invoke populateInstructions', () => {
     expect(domUpdates.populateInstructions()).to.equal('Recipe Instructions');
   });
+  chai.spy.on(domUpdates, 'populateCards', () => 'All Recipe Cards');
+  it('Should invoke populateCards', () => {
+    expect(domUpdates.populateCards()).to.equal('All Recipe Cards');
+  });
 });
 
 
