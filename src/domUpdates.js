@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import CookBook from './cookbook';
 
-
 export const domUpdates = {
 
  greetUser(usersData) {
