@@ -47,4 +47,4 @@ This was our third project (team of three) from Mod2 (of 4 mods total) at Turing
 [Madison Randle](https://github.com/madisonrandle)
 
 ## Visual:
-[![Screen-Shot-2020-02-26-at-8-58-52-AM.png](https://i.postimg.cc/Kv35Z9pR/Screen-Shot-2020-02-26-at-8-58-52-AM.png)](https://postimg.cc/F7mSpx44)
+[![Screen-Shot-2020-02-26-at-11-02-18-AM.png](https://i.postimg.cc/HLMzTcFM/Screen-Shot-2020-02-26-at-11-02-18-AM.png)](https://postimg.cc/068DfQk5)
