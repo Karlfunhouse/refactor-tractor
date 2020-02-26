@@ -3,7 +3,7 @@ This was our third project (team of three) from Mod2 (of 4 mods total) at Turing
 
 ## Project Learning Goals
 * Build on top of pre-existing code that you did not write and navigate someone else’s codebase
-* Develop processes for working remotely and submitting pull requests to perform effective code reviews that help ensure the * * code is accurate and that everyone understands it
+* Develop processes for working remotely and submitting pull requests to perform effective code reviews that help ensure the code is accurate and that everyone understands it
 * Make network requests to API endpoints to retrieve and manipulate data
 * Refactor pre-existing code and use inheritance to DRY up repetitive logic
 * Ensure your app is following best practices for accessibility
@@ -24,8 +24,12 @@ This was our third project (team of three) from Mod2 (of 4 mods total) at Turing
 * WEBPACK
 
 ## Directions for Use
-* On app load 1 of 50 ranodom users will be logged with their individual pantry information of ingredients.
-* 
+* On app load 1 of 50 ranodom users will be logged with their individual pantry information of ingredients
+* A user can favorite a recipe by selecting the star in the top right of each recipe card
+* The favorited recipes can be viewd by selecting the View Favorites button in the header on the top right of the page
+* Further recipe instructions and ingredients along with cost and quantity of each ingredient can be viewed by selecting the image on a recipe card
+* A user can filter recipe cards by searching for an item or type of item in the search bar on the top right corner of the page
+
 
 ## How to run on a local machine
 1. clone down this repo to desired location
