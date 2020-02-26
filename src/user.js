@@ -15,6 +15,7 @@ class Users {
     if (!this.tooCook.includes(recipe)) {
       this.tooCook.push(recipe)
     }
+
   }
 
   removeFromFavorites(recipe) {
