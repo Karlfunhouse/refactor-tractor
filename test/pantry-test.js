@@ -32,4 +32,7 @@ describe('Pantry', () => {
       expect(pantry.getIngredientNames().length).to.equal(36)
     });
 
+    it('Should be able to calculate if a user has enough ingredients', () => {
+      expect(pantry.checkIngredientSupply().length).to.equal(11);
+    });
 })
