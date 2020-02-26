@@ -41,4 +41,3 @@ This was our third project (team of three) from Mod2 (of 4 mods total) at Turing
 [Karl Nielson](https://github.com/Karlfunhouse)
 
 [Madison Randle](https://github.com/madisonrandle)
-
