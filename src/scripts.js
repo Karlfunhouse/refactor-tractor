@@ -17,11 +17,6 @@ let favorites = [];
 let searchedList = [];
 let toCook = [];
 let searchValue = $('#search-input');
-// homeButton.addEventListener('click', cardButtonConditionals);
-// favButton.addEventListener('click', viewFavorites);
-// cardArea.addEventListener('click', cardButtonConditionals);
-// $('.view-favorites').click(viewFavorites);
-// $('.all-cards').click(cardButtonConditionals);
 
 const userData = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
   .then(response => response.json())
@@ -56,7 +51,6 @@ Promise.all([recipeData, ingredientData, userData])
     $('.favorite').click(favoriteRecipe);
     $('#search-button').click(searchHandler);
     searchValue;
-    // $('.unfavorite').click(unFavoriteRecipe);
     $('.to-cook-button').click(cookMe);
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
