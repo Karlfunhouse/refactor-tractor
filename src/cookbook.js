@@ -33,6 +33,12 @@ class CookBook {
    //    return costForRecipe;
    //  }
 
+
+    calculateCost() {
+      // console.log(this.ingredientsData[0].estimatedCostInCents)
+      let dollars = this.ingredientsData[0].estimatedCostInCents / 100;
+      return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    }
     // calculateCost() {
     //   let calculateRecipe = this.recipesData.reduce((counter, recipe) => {
     //       return recipe.ingredients.filter(ingredient => {
