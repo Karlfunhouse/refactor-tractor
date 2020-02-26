@@ -31,6 +31,10 @@ describe.only('domUpdates.js', () => {
   it('Should invoke populateFavorites', () => {
     expect(domUpdates.populateFavorites()).to.equal('User\'s favorite recipes');
   });
+  chai.spy.on(domUpdates, 'populateSearchedRecipes', () => 'Searched recipes by user');
+  it('Should invoke populateSearchedRecipes', () => {
+    expect(domUpdates.populateSearchedRecipes()).to.equal('Searched recipes by user');
+  });
 });
 
 
