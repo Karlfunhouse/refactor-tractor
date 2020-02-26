@@ -54,22 +54,20 @@ Promise.all([recipeData, ingredientData, userData])
     $('#home-button').click(homeButtonHandler);
     $('#view-favorites-button').click(viewFavoritesHandler);
     $('.favorite').click(favoriteRecipe);
-    $('#search-button').click(searchHandler)
-    searchValue
+    $('#search-button').click(searchHandler);
+    searchValue;
     // $('.unfavorite').click(unFavoriteRecipe);
     $('.to-cook-button').click(cookMe);
   })
   .catch(error => {console.log('Something is amiss with promise all', error)});
 
 
-
-<
 function onStartUp() {
-    domUpdates.greetUser(currentUser);
-    domUpdates.populateCards(cookBook);
+  domUpdates.greetUser(currentUser);
+  domUpdates.populateCards(cookBook);
   }
 
-const  cardButtonConditionals = (event)  => {
+const cardButtonConditionals = (event)  => {
     if (event.target.classList.contains('card-picture')) {
       recipeHandler();
     }
@@ -102,7 +100,6 @@ const favoriteRecipe = (event) => {
     }
   })
   currentUser.addToFavorites(specificRecipe);
-  // if()
 }
 
 const cookMe = (event) => {
