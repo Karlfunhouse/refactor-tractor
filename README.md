@@ -1,5 +1,5 @@
 # Refactor Tractor
-This was our third project (team of three) from Mod2 (of 4 mods total) at Turing School of Software and Design. We were give a week and a half to refactor an existing code base, DRY up the code and implement incomplete features. The app uses `fetch()` method to `GET` data from an API. A major learning goal for this project was to create a robust testing suite using Chai, Chai Spies, and Mocha to thouroughly test units.
+This was our third project (team of three) from Mod2 (of 4 mods total) at Turing School of Software and Design. We were given a week and a half to refactor an existing code base, make the code DRY and implement incomplete features. The app uses the `fetch()` API to `GET` data. A major learning goal for this project was to create a robust testing suite using Chai, Chai Spies, and Mocha to thouroughly test units.
 
 ## Project Learning Goals
 * Build on top of pre-existing code that you did not write and navigate someone else’s codebase
