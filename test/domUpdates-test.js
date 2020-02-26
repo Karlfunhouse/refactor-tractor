@@ -15,6 +15,10 @@ describe.only('domUpdates.js', () => {
   it('Should invoke populateIngredients', () => {
     expect(domUpdates.populateIngredients()).to.equal('All ingredients');
   });
+  chai.spy.on(domUpdates, 'populateInstructions', () => 'Recipe Instructions');
+  it('Should invoke populateInstructions', () => {
+    expect(domUpdates.populateInstructions()).to.equal('Recipe Instructions');
+  });
 });
 
 
