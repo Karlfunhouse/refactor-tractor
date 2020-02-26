@@ -19,20 +19,6 @@ class CookBook {
   return searchResult;
   }
 
-   // calculateCost(){
-   //    let costForRecipe = this.recipesData.reduce((counter, ingredient) => {
-   //      return this.ingredientsData.find(specificIngredient => {
-   //        if (specificIngredient.id === ingredient.id) {
-   //          return costCounter += (Number(specificIngredient.estimatedCostInCents) *
-   //          Number(ingredient.quantity.amount))
-   //        }
-   //      })
-   //      console.log(counter)
-   //      return counter
-   //    }, 0);
-   //    return costForRecipe;
-   //  }
-
    calculateCost() {
    let dollars = this.ingredientsData.reduce((counter, ingredient) => {
     let matchingIngredients = this.recipesData.filter(recipeIngredient => {
