@@ -6,7 +6,7 @@ import CookBook from '../src/cookbook';
 
 let cookbook;
 
-describe('CookBook', () => {
+describe.only('CookBook', () => {
   beforeEach(() => {
     cookbook = new CookBook(ingredientData, recipeData);
   });
@@ -77,7 +77,7 @@ describe('CookBook', () => {
     });
 
     it('Should be able to calculate the cost for an ingredient', () => {
-      expect(cookbook.calculateCost()).to.equal('$6.23')
+      expect(cookbook.calculateCost(recipeData)).to.equal('$6.23')
     })
   })
 });

@@ -114,6 +114,14 @@ const cookMe = (event) => {
   console.log(currentUser)
 }
 
+const recipeHandler = () => {
+  domUpdates.populateRecipeInfo(cookBook, cookBook.calculateCost(cookBook.recipesData));
+ }
+
+const shuffleUser = (array) => {
+    array.sort(() => Math.random() - 0.5);
+ }
+
 // const toggleFavoriteHelper = (specificRecipe) => {
 //   if (event.target.classList.contains('favorite-active')) {
 //     event.target.classList.remove('favorite-active');
@@ -133,17 +141,6 @@ const cookMe = (event) => {
 //   currentUser.removeFromFavorites(specificRecipe);
 //   console.log(currentUser)
 // }
-
-const recipeHandler = () => {
-  // console.log(cookBook.calculateCost())
-  // , cookBook.calculateCost()
-  domUpdates.populateRecipeInfo(cookBook);
- }
-
-const shuffleUser = (array) => {
-    array.sort(() => Math.random() - 0.5);
- }
-
 
 
 // function favoriteCard(event) {

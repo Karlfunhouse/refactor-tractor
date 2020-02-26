@@ -59,7 +59,7 @@ export const domUpdates = {
     $('.all-cards').append(`<h3>${recipeInfo.name}</h3>
     <p class='all-recipe-info'>
     <strong>It will cost: </strong><span class='cost recipe-info'>
-    $${calculateCost}</span><br><br>
+    ${calculateCost}</span><br><br>
     <strong>You will need: </strong><span class='ingredients recipe-info'></span>
     <strong>Instructions: </strong><ol><span class='instructions recipe-info'>
     </span></ol>

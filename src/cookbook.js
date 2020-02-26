@@ -19,9 +19,9 @@ class CookBook {
   return searchResult;
   }
 
-   calculateCost() {
+   calculateCost(recipe) {
    let dollars = this.ingredientsData.reduce((counter, ingredient) => {
-    let matchingIngredients = this.recipesData.filter(recipeIngredient => {
+    let matchingIngredients = recipe.filter(recipeIngredient => {
       recipeIngredient.ingredients.forEach(item => {
         if(item.id === ingredient.id) {
           counter += ingredient.estimatedCostInCents;
