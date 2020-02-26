@@ -12,7 +12,9 @@ describe.only('domUpdates.js', () => {
     expect(domUpdates.greetUser()).to.equal('User\'s Name');
   });
   chai.spy.on(domUpdates, 'populateIngredients', () => 'All ingredients');
-
+  it('Should invoke populateIngredients', () => {
+    expect(domUpdates.populateIngredients()).to.equal('All ingredients');
+  });
 });
 
 
