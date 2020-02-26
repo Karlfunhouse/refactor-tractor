@@ -8,14 +8,14 @@ class CookBook {
 
   findRecipe(searchText){
     let searchResult = this.recipesData.reduce((searchedRecipes, recipe) => {
-      if (recipe.name.includes(searchText.toLowerCase()) ||
+      if (recipe.name.toLowerCase().includes(searchText.toLowerCase()) ||
       recipe.tags.includes(searchText.toLowerCase())) {
         searchedRecipes.push(recipe);
       }
       return searchedRecipes;
-  }, [])
-  return searchResult;
-  }
+    }, [])
+    return searchResult;
+  } 
 
    calculateCost(recipe) {
    let dollars = this.ingredientsData.reduce((counter, ingredient) => {

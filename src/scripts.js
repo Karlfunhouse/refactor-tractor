@@ -1,10 +1,9 @@
-
 import './css/styles.scss';
 
-import domUpdates from './domUpdates'
+import domUpdates from './domUpdates';
 import CookBook from './cookbook';
-import Pantry from './pantry'
-import Users from './user'
+import Pantry from './pantry';
+import Users from './user';
 import $ from 'jquery';
 
 let currentUser;
@@ -48,8 +47,10 @@ Promise.all([recipeData, ingredientData, userData])
     $('.all-cards').click(cardButtonConditionals);
     $('#home-button').click(homeButtonHandler);
     $('#view-favorites-button').click(viewFavoritesHandler);
+    $('#view-to-cook-button').click(viewToCookHandler);
     $('.favorite').click(favoriteRecipe);
     $('#search-button').click(searchHandler);
+    $('.add').click(cookMe);
     searchValue;
     $('.to-cook-button').click(cookMe);
     $('#pantry-button').click(viewPantryHandler);
@@ -82,8 +83,12 @@ const viewPantryHandler = () => {
 
 const viewFavoritesHandler = () => {
   $('.all-cards').empty();
-  domUpdates.populateFavorites(currentUser)
+  domUpdates.populateFavorites(currentUser);
+}
 
+const viewToCookHandler = () => {
+  $('.all-cards').empty();
+    domUpdates.populateToCook(currentUser);
 }
 
 const searchHandler = () => {
@@ -94,7 +99,6 @@ const searchHandler = () => {
 }
 
 const favoriteRecipe = (event) => {
-  console.log('favorite')
   let specificRecipe = cookBook.recipesData.find(recipe => {
     if (recipe.id  === Number(event.target.id)) {
       $(`.${recipe.id}`).addClass('favorite-active');
@@ -105,15 +109,13 @@ const favoriteRecipe = (event) => {
 }
 
 const cookMe = (event) => {
-  console.log('to-cook')
+
   let letscook = cookBook.recipesData.find(recipe => {
-    if (recipe.id  === Number(event.target.id)) {
-      // $(`.${recipe.id}`).addClass('favorite-active');
-      return recipe;
-    }
+  return recipe.id === parseInt(event.target.id)
   })
+
   currentUser.addToCook(letscook);
-  console.log(currentUser)
+
 }
 
 const recipeHandler = () => {
