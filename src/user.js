@@ -1,14 +1,19 @@
-import CookBook from "../src/cookbook"
-
-class Users extends CookBook {
-  constructor(ingredientsData, recipesData, usersData) {
-    super(ingredientsData, recipesData);
+class Users {
+  constructor(usersData, favoriteRecipes, tooCook) {
     this.usersData = usersData;
+    this.favoriteRecipes = []
+    this.tooCook = [];
   }
 
   addToFavorites(recipe) {
     if (!this.favoriteRecipes.includes(recipe)) {
       this.favoriteRecipes.push(recipe)
+    }
+  }
+
+  addToCook(recipe) {
+    if (!this.tooCook.includes(recipe)) {
+      this.tooCook.push(recipe)
     }
   }
 
