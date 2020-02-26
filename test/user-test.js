@@ -14,23 +14,23 @@ describe('Users', () => {
 
   });
 
-  it('should be a function', () => {
+  it.skip('should be a function', () => {
     expect(Users).to.be.a('function');
   });
 
-  it('should be an instance of Users', () => {
+  it.skip('should be an instance of Users', () => {
     expect(users).to.be.an.instanceof(Users);
   });
 
-  it('Should have a unique id', () => {
+  it.skip('Should have a unique id', () => {
     expect(users.usersData[0].id).to.eql(1);
   });
 
-  it('Should have a unique name', () => {
+  it.skip('Should have a unique name', () => {
     expect(users.usersData[0].name).to.eql("Saige O'Kon");
   });
 
-  it('Should have a pantry', () => {
+  it.skip('Should have a pantry', () => {
     expect(users.usersData[0].pantry.length).to.eql(52);
   });
 

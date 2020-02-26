@@ -77,7 +77,7 @@ describe('CookBook', () => {
     });
 
     it('Should be able to calculate the cost for an ingredient', () => {
-      expect(cookbook.calculateCost()).to.equal('$1.42')
+      expect(cookbook.calculateCost()).to.equal('$6.23')
     })
   })
 });

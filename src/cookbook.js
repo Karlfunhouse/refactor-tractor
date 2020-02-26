@@ -33,19 +33,19 @@ class CookBook {
    //    return costForRecipe;
    //  }
 
-    // calculateCost() {
-    //   let calculateRecipe = this.recipesData.reduce((counter, recipe) => {
-    //       return recipe.ingredients.filter(ingredient => {
-    //         console.log(ingredient.id)
-    //         if(ingredient.id.includes(this.ingredientData)){
-    //           console.log('made-it')
-    //         }
-    //       })
-    //     return counter
-    //   }, 0)
-    //   // let dollars = this.ingredientsData.estimatedCostInCents / 100;
-    //   // return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
-    // }
+   calculateCost() {
+   let dollars = this.ingredientsData.reduce((counter, ingredient) => {
+    let matchingIngredients = this.recipesData.filter(recipeIngredient => {
+      recipeIngredient.ingredients.forEach(item => {
+        if(item.id === ingredient.id) {
+          counter += ingredient.estimatedCostInCents;
+        }
+      })
+     })
+     return counter / 100;
+   }, 0)
+   return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
+ };
   }
 
 export default CookBook;
